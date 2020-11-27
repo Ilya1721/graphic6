@@ -43,6 +43,10 @@ class OutputData extends React.Component {
     }
     const p2 = exp(-(factorial(n) * pow(p, n - 1) * t) / temp);
     const p3 = (C(n, k) * pow(p, k)) / pow(1 + p, n);
+    //console.log(-(factorial(n) * pow(p, n - 1) * t));
+    //console.log(A(n, k));
+    //console.log(A(n, k) * pow(p, k));
+    //console.log(temp);
     const p4 = (A(n, k) * pow(p, k)) / temp;
     const p5 =
       (1 - pow(p, n) / pow(1 + p, n)) *
@@ -54,12 +58,12 @@ class OutputData extends React.Component {
     const p6 =
       (1 - (factorial(n) * pow(p, n)) / temp2) *
       exp(-(factorial(n) * pow(p, n - 1) * t) / temp);
-    console.log(p1);
-    console.log(p2);
-    console.log(p3);
-    console.log(p4);
-    console.log(p5);
-    console.log(p6);
+    //console.log(p1);
+    //console.log(p2);
+    console.log(exp(p3));
+    console.log(exp(p4));
+    //console.log(p5);
+    //console.log(p6);
 
     return {
       p1,
@@ -121,6 +125,46 @@ class OutputData extends React.Component {
           </tbody>
         </table>
         <h3 className="margin-top">Завдання 2</h3>
+        <table>
+          <thead>
+            <tr>
+              <th colSpan={2}>
+                Загальна імовірність безвідмовної роботи дубльованої ЕОМ
+              </th>
+            </tr>
+            <tr>
+              <th>Необмежений ремонт</th>
+              <th>Обмежений ремонт</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{taskTwoThree.p1.toFixed(8)}</td>
+              <td>{taskTwoThree.p2.toFixed(4)}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 className="margin-top">Завдання 3</h3>
+        <table>
+          <thead>
+            <tr>
+              <th colSpan={2}>
+                Імовірність безвідмовної роботи для машин, які ремонтуються під
+                час експлуатації
+              </th>
+            </tr>
+            <tr>
+              <th>Необмежений ремонт</th>
+              <th>Обмежений ремонт</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{taskTwoThree.p5.toFixed(8)}</td>
+              <td>{taskTwoThree.p6.toFixed(4)}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }
